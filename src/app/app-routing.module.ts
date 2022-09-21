@@ -4,7 +4,7 @@ import {  RouterModule, Routes } from '@angular/router';
 import { PagesRoutingModule } from './pages/pages-routing.module';
 
 import { LoginComponent } from './auth/login/login.component';
-import { NopagefoundComponent } from './pages/nopagefound/nopagefound.component';
+import { NopagefoundComponent } from './nopagefound/nopagefound.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { AuthRoutingModule } from './auth/auth-routing.module';
 
@@ -17,7 +17,7 @@ const routes : Routes =[
   /*    path: '/medicos' MedicosRouting                         */
   /*    path: '/compras' ComprasRouting                         */
   /************************************************************ */
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full'},
   { path: '**', component: NopagefoundComponent }
 
 ]
@@ -30,8 +30,6 @@ const routes : Routes =[
     AuthRoutingModule,
     PagesRoutingModule
   ],
-  exports:[
-    RouterModule
-  ]
+  exports:[ RouterModule ]
 })
 export class AppRoutingModule { }
