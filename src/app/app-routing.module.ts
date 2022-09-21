@@ -1,41 +1,34 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import {  RouterModule, Routes } from '@angular/router';
 
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { Grafica1Component } from './pages/grafica1/grafica1.component';
+import { PagesRoutingModule } from './pages/pages-routing.module';
+
 import { LoginComponent } from './auth/login/login.component';
 import { NopagefoundComponent } from './pages/nopagefound/nopagefound.component';
-import { ProgressComponent } from './pages/progress/progress.component';
 import { RegisterComponent } from './auth/register/register.component';
-import { PagesComponent } from './pages/pages.component';
+import { AuthRoutingModule } from './auth/auth-routing.module';
 
 const routes : Routes =[
-
-  /********************** rutas protegidas ***********************/
-  { 
-    path: '',
-    component: PagesComponent,
-    children:[
-      { path: 'dashboard', component: DashboardComponent },
-      { path: 'progress', component: ProgressComponent },
-      { path: 'grafica1', component: Grafica1Component },
-      { path: '', redirectTo : '/dashboard', pathMatch: 'full' },
-    ]
-  },
-
-  /********************* rutas publicas **************************/
-  { path: 'register', component: RegisterComponent },
-  { path: 'login', component: LoginComponent },
-
+  /************************************************************ */
+  /*  Estas son las rutas que ya estan tomadas                  */
+  /*                                                            */
+  /*    path: '/dashboard' PagesRouting                         */
+  /*    path: '/auth'AuthRouting                                */
+  /*    path: '/medicos' MedicosRouting                         */
+  /*    path: '/compras' ComprasRouting                         */
+  /************************************************************ */
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
   { path: '**', component: NopagefoundComponent }
+
 ]
 
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule,
-    RouterModule.forRoot( routes )
+    RouterModule.forRoot( routes ),
+
+    AuthRoutingModule,
+    PagesRoutingModule
   ],
   exports:[
     RouterModule
