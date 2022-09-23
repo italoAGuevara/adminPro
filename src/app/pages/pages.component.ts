@@ -3,9 +3,9 @@ import { SettingsService } from '../services/settings.service';
 
 
 /**
- * Funcion global para inicilizar estilos se encuentra en la ruta 
- * './assets/js/custom.min.js' ,  si no se inicializa aquí no, cargaran los estilos
- * cada que vez que se accede a este page
+ * Global function initilizer the styles that is in the rout
+ * './assets/js/custom.min.js' ,  if no initialized here, do not will be possible
+ * load the styles every time that user is inside this page
  */
 declare function  customInitFunction() : void
   
