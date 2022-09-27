@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 /****************************** COMPONENTES PROPIOS ****************************** */
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
+import { AuthGuard } from '../guards/auth.guard';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { Grafica1Component } from './grafica1/grafica1.component';
 import { PagesComponent } from './pages.component';
@@ -15,6 +16,7 @@ const routes: Routes = [
   { 
     path: '', 
     component: PagesComponent,
+    canActivate: [ AuthGuard ],
     children: [
         { path: 'account-settings', component: AccountSettingsComponent, data: { title : 'Configuraciones de cuenta'} },
         { path: 'dashboard', component: DashboardComponent, data: { title : 'Dashboard'} },
